@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Dicionário Saelthyr — língua demoníaca de Preirt (lore Zeraph)" />
+  <title>Saelthyr — Dicionário</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="site-header">
+      <div class="sigil" aria-hidden="true"></div>
+      <h1 id="site-title">Saelthyr</h1>
+      <p class="subtitle" id="site-subtitle">Dicionário · língua de Preirt</p>
+          </header>
+
+    <nav class="nav" aria-label="Navegação principal">
+      <button type="button" class="nav-btn active" data-panel="inicio">Início</button>
+      <button type="button" class="nav-btn" data-panel="regras">Regras</button>
+      <button type="button" class="nav-btn" data-panel="dicionario">Dicionário</button>
+      <button type="button" class="nav-btn" data-panel="frases">Frases</button>
+      <button type="button" class="nav-btn" data-panel="costumes">Costumes</button>
+    </nav>
+
+    <!-- INÍCIO -->
+    <section id="panel-inicio" class="panel active" aria-label="Início">
+      <div class="home-hero">
+        <p id="home-blurb">
+          Língua construída dos demônios de Preirt. Baseada vagamente no latim,
+          mas sem cognatos óbvios. Usada no cotidiano e em rituais.
+        </p>
+        <div class="quick-links">
+          <button type="button" class="nav-btn" data-goto="dicionario">Abrir dicionário</button>
+          <button type="button" class="nav-btn" data-goto="regras">Ver regras</button>
+          <button type="button" class="nav-btn" data-goto="frases">Frases rituais</button>
+        </div>
+        <div class="stat-row" id="home-stats"></div>
+      </div>
+
+      <p class="panel-intro" style="margin-top: 1.75rem">
+        Para RP em Minecraft: use o dicionário para traduzir falas. Prefira frases curtas em rituais.
+        Atualize <code style="font-family:ui-monospace,monospace;color:#c4a484">data.js</code> quando o vocabulário crescer.
+      </p>
+    </section>
+
+    <!-- REGRAS -->
+    <section id="panel-regras" class="panel" aria-label="Regras">
+      <p class="panel-intro">Gramática e pronúncia do Saelthyr.</p>
+      <div class="card-grid" id="grammar-list"></div>
+    </section>
+
+    <!-- DICIONÁRIO -->
+    <section id="panel-dicionario" class="panel" aria-label="Dicionário">
+      <p class="panel-intro">Busque em Saelthyr ou em português. Filtre por categoria.</p>
+      <div class="toolbar">
+        <div class="search-wrap">
+          <label class="sr-only" for="search">Buscar</label>
+          <input
+            type="search"
+            id="search"
+            placeholder="Buscar em Saelthyr ou português…"
+            autocomplete="off"
+            spellcheck="false"
+          />
+        </div>
+        <div class="chips" id="chips" role="group" aria-label="Filtro de categoria"></div>
+      </div>
+      <p class="results-meta" id="dict-meta"></p>
+      <div class="entry-list" id="dict-list"></div>
+    </section>
+
+    <!-- FRASES -->
+    <section id="panel-frases" class="panel" aria-label="Frases">
+      <p class="panel-intro">Frases prontas para RP e rituais.</p>
+      <div class="toolbar">
+        <div class="search-wrap">
+          <label class="sr-only" for="phrase-search">Buscar frases</label>
+          <input
+            type="search"
+            id="phrase-search"
+            placeholder="Buscar frases…"
+            autocomplete="off"
+            spellcheck="false"
+          />
+        </div>
+      </div>
+      <p class="results-meta" id="phrase-meta"></p>
+      <div class="entry-list" id="phrase-list"></div>
+    </section>
+
+    <!-- COSTUMES -->
+    <section id="panel-costumes" class="panel" aria-label="Costumes">
+      <p class="panel-intro">Costumes de formalidade e tabus cerimoniais.</p>
+      <div class="card-grid" id="customs-panel-list"></div>
+    </section>
+
+    <footer class="site-footer">
+      <p>Atualize <code>data.js</code> para expandir o idioma.</p>
+      <p>Saelthyr · Preirt / Zeraph lore · dicionário offline</p>
+    </footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
