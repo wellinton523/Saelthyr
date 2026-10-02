@@ -4,7 +4,7 @@ const SAELTHYR = {
     name: "Saelthyr",
     subtitle: "Dicionário · língua de Preirt",
     description:
-      "Língua construída dos demônios de Preirt. Baseada vagamente no latim, mas sem cognatos óbvios. Usada no cotidiano e em rituais do lore Zeraph/Preirt.",
+      "Língua construída dos demônios de Preirt. Usada no cotidiano e em rituais.",
   },
 
   grammar: [
