@@ -4,7 +4,7 @@ const SAELTHYR = {
     name: "Saelthyr",
     subtitle: "Dicionário · língua de Preirt",
     description:
-      "Língua construída dos demônios de Preirt. Usada no cotidiano e em rituais.",
+      "Língua construída dos demônios de Preirt. Baseada vagamente no latim, mas sem cognatos óbvios. Usada no cotidiano e em rituais do lore Zeraph/Preirt.",
   },
 
   grammar: [
@@ -27,6 +27,14 @@ const SAELTHYR = {
     {
       title: "Perguntas",
       body: "Coloque a partícula kae no FINAL da frase. Exemplo: Ryn essyr kylor kae? (Você é amigo?).",
+    },
+    {
+      title: "Futuro, lugar e pessoa",
+      body: "nelth antes do verbo marca o futuro (zer nelth ir = eu irei). yn = em; soveth = sobre; vraen = antes; ostel = depois. ael = ele/ela; aelim = eles. jael = já; athen = ainda; naeth = nunca. qed sy = mesmo se.",
+    },
+    {
+      title: "Que (qyr)",
+      body: "qyr liga a oração. Exemplo: Thraelim qyr velth kel-essyr Preirt kel-haveth dyreth. (Coisas que não existiam em Preirt não têm palavra.) qen = para que; qel = quando; qed = embora.",
     },
     {
       title: "Passado (velth)",
@@ -95,6 +103,20 @@ const SAELTHYR = {
     { saelthyr: "vynel", pt: "sem", category: "particulas" },
     { saelthyr: "sy", pt: "se / caso", category: "particulas" },
     { saelthyr: "qer", pt: "porque / pois", category: "particulas" },
+    { saelthyr: "qyr", pt: "que", category: "particulas", notes: "Liga orações: thraelim qyr velth kel-essyr Preirt" },
+    { saelthyr: "qen", pt: "para que", category: "particulas" },
+    { saelthyr: "qel", pt: "quando", category: "particulas" },
+    { saelthyr: "qed", pt: "embora / mesmo que", category: "particulas", notes: "qed sy = mesmo se" },
+    { saelthyr: "ael", pt: "ele / ela", category: "particulas", notes: "Também objeto: dyreth ael" },
+    { saelthyr: "aelim", pt: "eles / elas", category: "particulas" },
+    { saelthyr: "yn", pt: "em / dentro de", category: "particulas" },
+    { saelthyr: "soveth", pt: "sobre / a respeito de", category: "particulas" },
+    { saelthyr: "vraen", pt: "antes", category: "particulas" },
+    { saelthyr: "ostel", pt: "depois", category: "particulas" },
+    { saelthyr: "nelth", pt: "marcador de futuro", category: "particulas", notes: "Antes do verbo: zer nelth ir = eu irei" },
+    { saelthyr: "jael", pt: "já", category: "particulas" },
+    { saelthyr: "athen", pt: "ainda", category: "particulas" },
+    { saelthyr: "naeth", pt: "nunca", category: "particulas" },
     { saelthyr: "omnis", pt: "todo / tudo", category: "particulas" },
     { saelthyr: "graeth", pt: "obrigado / gratidão", category: "particulas" },
     { saelthyr: "nael", pt: "de nada", category: "particulas" },
@@ -105,6 +127,8 @@ const SAELTHYR = {
     { saelthyr: "kylorim", pt: "amigos", category: "pessoas", notes: "Plural de kylor" },
     { saelthyr: "thrén", pt: "pessoa / alguém", category: "pessoas" },
     { saelthyr: "kael", pt: "criança", category: "pessoas" },
+    { saelthyr: "thrael", pt: "coisa", category: "natureza", notes: "Plural thraelim" },
+    { saelthyr: "orvyn", pt: "mundo", category: "tempo_lugar", notes: "lok = lugar; orvyn = o mundo" },
     { saelthyr: "syrel", pt: "filho", category: "pessoas", notes: "kael = criança; syrel = filho" },
     { saelthyr: "saelyra", pt: "filha", category: "pessoas" },
     { saelthyr: "myrath", pt: "precioso / querido", category: "natureza", notes: "Afeto; Hazel essyr myrath syrel va zer" },
@@ -120,6 +144,8 @@ const SAELTHYR = {
     { saelthyr: "vyn", pt: "vir / chegar", category: "verbos" },
     { saelthyr: "ir", pt: "ir", category: "verbos" },
     { saelthyr: "dyreth", pt: "dizer / falar", category: "verbos", notes: "kel-dyreth = não diga" },
+    { saelthyr: "dyrael", pt: "tradução", category: "natureza", notes: "dyreth = falar; dyrael = a tradução da palavra" },
+    { saelthyr: "dyraelth", pt: "traduzir", category: "verbos" },
     { saelthyr: "auryth", pt: "ouvir", category: "verbos" },
     { saelthyr: "vaelth", pt: "saber / conhecer", category: "verbos" },
     { saelthyr: "volyth", pt: "querer / desejar", category: "verbos" },
@@ -324,6 +350,7 @@ const SAELTHYR = {
     { saelthyr: "Faren va hushyr.", pt: "Adeus em paz.", category: "frases" },
     { saelthyr: "Zer essyr daemor.", pt: "Eu sou um demônio.", category: "frases" },
     { saelthyr: "Nythryl essyr nex Cor Preirti.", pt: "A árvore negra está perto do Coração de Preirt.", category: "frases" },
+    { saelthyr: "Thraelim qyr velth kel-essyr yn orvyn va zer vraen sevath kel-haveth dyreth, qed sy velim volyth dyreth aelim nyth.", pt: "Coisas que não existiam no meu mundo antes do pacto não têm palavra, mesmo se nós quisermos dizê-las agora.", category: "frases" },
     { saelthyr: "Ryn velth vyth syrel va zer kae?", pt: "Você viu meu filho?", category: "frases", notes: "velth = passado antes do verbo" },
   ],
 };
