@@ -234,7 +234,7 @@
   }
 
   function bind() {
-    $$(".nav-btn").forEach((btn) => {
+    $$(".nav-btn[data-panel]").forEach((btn) => {
       btn.addEventListener("click", () => setPanel(btn.dataset.panel));
     });
 
