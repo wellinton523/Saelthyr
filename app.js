@@ -11,7 +11,9 @@
     dictQuery: "",
     phraseQuery: "",
     category: "all",
+    limit: 120,
   };
+  const PAGE = 120;
 
   function catLabel(id) {
     const c = SAELTHYR.categories.find((x) => x.id === id);
@@ -46,11 +48,10 @@
     if (category !== "all" && entry.category !== category) return false;
     if (!query) return true;
     const q = query.toLowerCase();
-    return (
-      entry.saelthyr.toLowerCase().includes(q) ||
-      entry.pt.toLowerCase().includes(q) ||
-      (entry.notes && entry.notes.toLowerCase().includes(q))
-    );
+    if (entry._s === undefined) {
+      entry._s = (entry.saelthyr + "\u0001" + entry.pt + "\u0001" + (entry.notes || "")).toLowerCase();
+    }
+    return entry._s.includes(q);
   }
 
   function wordEntries() {
@@ -141,9 +142,12 @@
         '<p class="empty">Nenhuma entrada encontrada. Tente outro termo ou categoria.</p>';
       return;
     }
-    list.innerHTML = filtered
-      .map((e, i) => renderEntry(e, state.dictQuery, i))
-      .join("");
+    const shown = filtered.slice(0, state.limit);
+    let html = shown.map((e, i) => renderEntry(e, state.dictQuery, i)).join("");
+    if (filtered.length > shown.length) {
+      html += `<div class="more-wrap"><button type="button" class="nav-btn more-btn" id="dict-more">Mostrar mais (${shown.length} de ${filtered.length})</button></div>`;
+    }
+    list.innerHTML = html;
   }
 
   function renderPhrases() {
@@ -240,6 +244,14 @@
 
     $("#search")?.addEventListener("input", (e) => {
       state.dictQuery = e.target.value;
+      state.limit = PAGE;
+      clearTimeout(state._t);
+      state._t = setTimeout(renderDictionary, 80);
+    });
+
+    $("#dict-list")?.addEventListener("click", (e) => {
+      if (!e.target.closest("#dict-more")) return;
+      state.limit += PAGE * 4;
       renderDictionary();
     });
 
@@ -252,6 +264,7 @@
       const btn = e.target.closest(".chip");
       if (!btn) return;
       state.category = btn.dataset.cat;
+      state.limit = PAGE;
       renderChips();
       renderDictionary();
     });
