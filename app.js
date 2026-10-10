@@ -79,6 +79,31 @@
     if (id === "frases") $("#phrase-search")?.focus();
   }
 
+  function toCruor(s) {
+    return String(s || "")
+      .toLowerCase()
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .replace(/ae/g, "\u00c6").replace(/th/g, "\u00de")
+      .toUpperCase()
+      .replace(/[^A-Z\u00c6\u00de ]+/g, " ")
+      .replace(/\s+/g, " ").trim();
+  }
+
+  function renderAlphabet() {
+    const grid = $("#cruor-grid");
+    if (!grid) return;
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map((l) => [l, l]);
+    letters.push(["\u00c6", "Æ · ae"], ["\u00de", "Þ · th"]);
+    grid.innerHTML = letters.map(([g, lab]) =>
+      `<div class="cruor-cell"><span class="cruor cruor-glyph">${g}</span><span class="cruor-lat">${lab}</span></div>`).join("");
+    const inp = $("#cruor-input"), out = $("#cruor-out");
+    if (inp && out) {
+      const upd = () => { out.textContent = toCruor(inp.value); };
+      inp.addEventListener("input", upd);
+      upd();
+    }
+  }
+
   function renderEntry(entry, query, index) {
     const notes = entry.notes
       ? `<div class="entry-notes">${highlight(entry.notes, query)}</div>`
@@ -88,6 +113,7 @@
     return `
       <article class="entry${phraseClass}" style="--i:${stagger}">
         <div class="entry-sael">${highlight(entry.saelthyr, query)}</div>
+        <div class="cruor entry-cruor" aria-hidden="true">${escapeHtml(toCruor(entry.saelthyr))}</div>
         <div class="entry-pt">${highlight(entry.pt, query)}</div>
         <div class="entry-cat">${escapeHtml(catLabel(entry.category))}</div>
         ${notes}
@@ -246,6 +272,7 @@
 
     renderHome();
     renderRules();
+    renderAlphabet();
     renderCustomsPanel();
     renderChips();
     renderDictionary();
