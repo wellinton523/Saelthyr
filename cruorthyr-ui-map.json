@@ -1,0 +1,873 @@
+[
+ {
+  "group": "Nomes",
+  "pt": "EREBONYS",
+  "saelthyr": "EREBONYS",
+  "romanizacao": "erebonys",
+  "literal": "Erebonys (nome próprio)"
+ },
+ {
+  "group": "Nomes",
+  "pt": "ZERAPH EREBONYS",
+  "saelthyr": "ZERAPH EREBONYS",
+  "romanizacao": "zeraph erebonys",
+  "literal": "Zeraph Erebonys (nome próprio)"
+ },
+ {
+  "group": "Nomes",
+  "pt": "UNIDADE",
+  "saelthyr": "ÆNYR",
+  "romanizacao": "aenyr",
+  "literal": "unidade"
+ },
+ {
+  "group": "Nomes",
+  "pt": "UNIDADE 04",
+  "saelthyr": "ÆNYR VÆN KÆÞ",
+  "romanizacao": "aenyr vaen kaeth",
+  "literal": "unidade zero quatro"
+ },
+ {
+  "group": "Cenas",
+  "pt": "A ALMA DESCANSA",
+  "saelthyr": "SÆL SAUREÞ",
+  "romanizacao": "sael saureth",
+  "literal": "alma descansa"
+ },
+ {
+  "group": "Cenas",
+  "pt": "REINICIANDO",
+  "saelthyr": "OSTNYREÞ NYÞ",
+  "romanizacao": "ostnyreth nyth",
+  "literal": "renasce agora"
+ },
+ {
+  "group": "Cenas",
+  "pt": "REINICIALIZAÇÃO",
+  "saelthyr": "OSTNYREÞ",
+  "romanizacao": "ostnyreth",
+  "literal": "renascer"
+ },
+ {
+  "group": "Cenas",
+  "pt": "SISTEMA RESTAURADO",
+  "saelthyr": "RUNEÞYR VELÞ MÆREÞ",
+  "romanizacao": "runethyr velth maereth",
+  "literal": "sistema restaurou-se"
+ },
+ {
+  "group": "Cenas",
+  "pt": "A LIVE JÁ VAI COMEÇAR",
+  "saelthyr": "ÞÆLRUVEL VYREL JÆL NELÞ VÆREÞ",
+  "romanizacao": "thaelruvel vyrel jael nelth vaereth",
+  "literal": "transmissão viva já vai começar"
+ },
+ {
+  "group": "Cenas",
+  "pt": "ECOS DAS ALMAS PRESAS",
+  "saelthyr": "RUVELIM VA SÆLIM VELÞ KORVEÞ",
+  "romanizacao": "ruvelim va saelim velth korveth",
+  "literal": "ecos de almas presas"
+ },
+ {
+  "group": "Cenas",
+  "pt": "ALMA PRESA",
+  "saelthyr": "SÆL VELÞ KORVEÞ",
+  "romanizacao": "sael velth korveth",
+  "literal": "alma presa"
+ },
+ {
+  "group": "Cenas",
+  "pt": "ESPÍRITO ATIVO",
+  "saelthyr": "VELMIST VYREL",
+  "romanizacao": "velmist vyrel",
+  "literal": "névoa viva viva"
+ },
+ {
+  "group": "Cenas",
+  "pt": "SINAL INSTÁVEL",
+  "saelthyr": "SÆLRUVEL VYNEL PÆL",
+  "romanizacao": "saelruvel vynel pael",
+  "literal": "sinal sem paz"
+ },
+ {
+  "group": "Cenas",
+  "pt": "ERRO",
+  "saelthyr": "DRÆNÞ",
+  "romanizacao": "draenth",
+  "literal": "falha/ferida"
+ },
+ {
+  "group": "Cenas",
+  "pt": "SETOR",
+  "saelthyr": "LOK",
+  "romanizacao": "lok",
+  "literal": "lugar"
+ },
+ {
+  "group": "Cenas",
+  "pt": "ALMA PULSANDO",
+  "saelthyr": "SÆL ÞUMEÞ",
+  "romanizacao": "sael thumeth",
+  "literal": "alma pulsa"
+ },
+ {
+  "group": "Cenas",
+  "pt": "FRAGMENTAÇÃO DA ALMA",
+  "saelthyr": "SKEÞYR VA SÆL",
+  "romanizacao": "skethyr va sael",
+  "literal": "corte da alma"
+ },
+ {
+  "group": "Cenas",
+  "pt": "ALMAS PERDIDAS",
+  "saelthyr": "SÆLIM VELÞ NAREÞ",
+  "romanizacao": "saelim velth nareth",
+  "literal": "almas perdidas"
+ },
+ {
+  "group": "Cenas",
+  "pt": "SINAL EM ESPERA",
+  "saelthyr": "SÆLRUVEL YN HALYÞ",
+  "romanizacao": "saelruvel yn halyth",
+  "literal": "sinal em espera"
+ },
+ {
+  "group": "Cenas",
+  "pt": "CONEXÃO COM AS ALMAS",
+  "saelthyr": "KÆRYN KYM SÆLIM",
+  "romanizacao": "kaeryn kym saelim",
+  "literal": "elo com almas"
+ },
+ {
+  "group": "Cenas",
+  "pt": "RELATÓRIO",
+  "saelthyr": "DYREÞAL",
+  "romanizacao": "dyrethal",
+  "literal": "relato"
+ },
+ {
+  "group": "Cenas",
+  "pt": "PROBLEMAS TÉCNICOS",
+  "saelthyr": "DRÆNÞIM VA RUNEÞYR",
+  "romanizacao": "draenthim va runethyr",
+  "literal": "falhas do sistema"
+ },
+ {
+  "group": "Cenas",
+  "pt": "VOLTAMOS JÁ",
+  "saelthyr": "ZERIM NELÞ MÆREÞ NEX",
+  "romanizacao": "zerim nelth maereth nex",
+  "literal": "nós voltaremos logo"
+ },
+ {
+  "group": "Cenas",
+  "pt": "SINAL PERDIDO",
+  "saelthyr": "SÆLRUVEL VELÞ NAREÞ",
+  "romanizacao": "saelruvel velth nareth",
+  "literal": "sinal perdido"
+ },
+ {
+  "group": "Cenas",
+  "pt": "REPRODUÇÃO PAUSADA",
+  "saelthyr": "RUVEL YN HALYÞ",
+  "romanizacao": "ruvel yn halyth",
+  "literal": "eco em espera"
+ },
+ {
+  "group": "Alertas",
+  "pt": "ERRO DE ARQUIVO",
+  "saelthyr": "DRÆNÞ VA LORVÆL",
+  "romanizacao": "draenth va lorvael",
+  "literal": "falha do arquivo"
+ },
+ {
+  "group": "Alertas",
+  "pt": "CANAL VOCAL ATIVO",
+  "saelthyr": "RAIÞ VA DYREÞ VYREL",
+  "romanizacao": "raith va dyreth vyrel",
+  "literal": "caminho da voz vivo"
+ },
+ {
+  "group": "Alertas",
+  "pt": "EVENTO DETECTADO",
+  "saelthyr": "NYRÆL VELÞ VYÞ",
+  "romanizacao": "nyrael velth vyth",
+  "literal": "surgimento visto"
+ },
+ {
+  "group": "Alertas",
+  "pt": "NOVO ELO ESTABELECIDO",
+  "saelthyr": "ÞÆNYR KÆRYN VELÞ DRÆLEÞ",
+  "romanizacao": "thaenyr kaeryn velth draeleth",
+  "literal": "novo elo assentado"
+ },
+ {
+  "group": "Alertas",
+  "pt": "SINAL EM MASSA DETECTADO",
+  "saelthyr": "SÆLRUVEL YN OMNIS VELÞ VYÞ",
+  "romanizacao": "saelruvel yn omnis velth vyth",
+  "literal": "sinal em todos visto"
+ },
+ {
+  "group": "Alertas",
+  "pt": "DISTRIBUIÇÃO DE RECURSOS",
+  "saelthyr": "DELYÞ VA ÞAVENIM",
+  "romanizacao": "delyth va thavenim",
+  "literal": "dar dos recursos"
+ },
+ {
+  "group": "Alertas",
+  "pt": "COMANDO RECEBIDO",
+  "saelthyr": "KÆLDYR VELÞ GRYÞ",
+  "romanizacao": "kaeldyr velth gryth",
+  "literal": "comando tomado"
+ },
+ {
+  "group": "Alertas",
+  "pt": "TRANSFERÊNCIA DE RECURSOS",
+  "saelthyr": "ÞÆLEÞ VA ÞAVENIM",
+  "romanizacao": "thaeleth va thavenim",
+  "literal": "travessia dos recursos"
+ },
+ {
+  "group": "Alertas",
+  "pt": "DADOS RECEBIDOS",
+  "saelthyr": "DYREÞIM VELÞ GRYÞ",
+  "romanizacao": "dyrethim velth gryth",
+  "literal": "palavras tomadas"
+ },
+ {
+  "group": "Frases ARIS",
+  "pt": "SEM PORTADORA",
+  "saelthyr": "VYNEL BÆRYN",
+  "romanizacao": "vynel baeryn",
+  "literal": "sem portadora"
+ },
+ {
+  "group": "Frases ARIS",
+  "pt": "MODO JOGO",
+  "saelthyr": "FÆÞ VA VÆLKYR",
+  "romanizacao": "faeth va vaelkyr",
+  "literal": "modo do jogo"
+ },
+ {
+  "group": "Frases ARIS",
+  "pt": "CÉLULA SATURADA",
+  "saelthyr": "MYRÆLKOR ÞYRN",
+  "romanizacao": "myraelkor thyrn",
+  "literal": "coração de mana cheio"
+ },
+ {
+  "group": "Frases ARIS",
+  "pt": "TEMPESTADE",
+  "saelthyr": "ÞURMYN",
+  "romanizacao": "thurmyn",
+  "literal": "tempestade"
+ },
+ {
+  "group": "Frases ARIS",
+  "pt": "CICLO NOTURNO",
+  "saelthyr": "KYREL VA NYÞEL",
+  "romanizacao": "kyrel va nythel",
+  "literal": "ciclo da noite"
+ },
+ {
+  "group": "Frases ARIS",
+  "pt": "SILÊNCIO",
+  "saelthyr": "HUSHYR",
+  "romanizacao": "hushyr",
+  "literal": "silêncio"
+ },
+ {
+  "group": "Frases ARIS",
+  "pt": "SOBRECARGA",
+  "saelthyr": "SOVEÞ MYRÆL",
+  "romanizacao": "soveth myrael",
+  "literal": "sobre-mana"
+ },
+ {
+  "group": "Frases ARIS",
+  "pt": "RESSONÂNCIA",
+  "saelthyr": "RUVELÞ",
+  "romanizacao": "ruvelth",
+  "literal": "ressonância"
+ },
+ {
+  "group": "Frases ARIS",
+  "pt": "SINAL ESTÁVEL",
+  "saelthyr": "SÆLRUVEL PÆL",
+  "romanizacao": "saelruvel pael",
+  "literal": "sinal em paz"
+ },
+ {
+  "group": "Frases ARIS",
+  "pt": "CÉLULA EM CARGA",
+  "saelthyr": "MYRÆLKOR YN MYRÆL",
+  "romanizacao": "myraelkor yn myrael",
+  "literal": "célula em mana"
+ },
+ {
+  "group": "Frases ARIS",
+  "pt": "RESERVA BAIXA",
+  "saelthyr": "HALVEN LYN",
+  "romanizacao": "halven lyn",
+  "literal": "reserva pouca"
+ },
+ {
+  "group": "Frases ARIS",
+  "pt": "CARGA RÁPIDA",
+  "saelthyr": "MYRÆL SYÞ",
+  "romanizacao": "myrael syth",
+  "literal": "mana rápida"
+ },
+ {
+  "group": "Frases ARIS",
+  "pt": "TRANSMISSÃO RETOMADA",
+  "saelthyr": "ÞÆLRUVEL VELÞ MÆREÞ",
+  "romanizacao": "thaelruvel velth maereth",
+  "literal": "transmissão voltou"
+ },
+ {
+  "group": "Eventos",
+  "pt": "ÁUDIO CONECTADO",
+  "saelthyr": "AURÆL VELÞ KÆREÞ",
+  "romanizacao": "aurael velth kaereth",
+  "literal": "áudio ligado"
+ },
+ {
+  "group": "Eventos",
+  "pt": "ÁUDIO PERDIDO",
+  "saelthyr": "AURÆL VELÞ NAREÞ",
+  "romanizacao": "aurael velth nareth",
+  "literal": "áudio perdido"
+ },
+ {
+  "group": "Eventos",
+  "pt": "SESSÃO",
+  "saelthyr": "CHRONEL",
+  "romanizacao": "chronel",
+  "literal": "tempo"
+ },
+ {
+  "group": "Eventos",
+  "pt": "REDE ONLINE",
+  "saelthyr": "KÆRORVYN VYREL",
+  "romanizacao": "kaerorvyn vyrel",
+  "literal": "mundo de elos vivo"
+ },
+ {
+  "group": "Eventos",
+  "pt": "REDE OFFLINE",
+  "saelthyr": "KÆRORVYN VYNEL VYREL",
+  "romanizacao": "kaerorvyn vynel vyrel",
+  "literal": "mundo de elos sem vida"
+ },
+ {
+  "group": "Eventos",
+  "pt": "ELO OK",
+  "saelthyr": "KÆRYN PÆL",
+  "romanizacao": "kaeryn pael",
+  "literal": "elo em paz"
+ },
+ {
+  "group": "Eventos",
+  "pt": "CARGA REDUZIDA",
+  "saelthyr": "MYRÆL LYN",
+  "romanizacao": "myrael lyn",
+  "literal": "mana pouca"
+ },
+ {
+  "group": "Eventos",
+  "pt": "MODO JOGO DESLIGADO",
+  "saelthyr": "FÆÞ VA VÆLKYR VYNEL VYREL",
+  "romanizacao": "faeth va vaelkyr vynel vyrel",
+  "literal": "modo do jogo sem vida"
+ },
+ {
+  "group": "Eventos",
+  "pt": "ELO DE CARGA",
+  "saelthyr": "KÆRYN VA MYRÆL",
+  "romanizacao": "kaeryn va myrael",
+  "literal": "elo da mana"
+ },
+ {
+  "group": "Eventos",
+  "pt": "ELO POR INDUÇÃO",
+  "saelthyr": "KÆRYN YN NEX",
+  "romanizacao": "kaeryn yn nex",
+  "literal": "elo em proximidade"
+ },
+ {
+  "group": "Eventos",
+  "pt": "ELO CORTADO",
+  "saelthyr": "KÆRYN VELÞ SKEÞYR",
+  "romanizacao": "kaeryn velth skethyr",
+  "literal": "elo cortado"
+ },
+ {
+  "group": "Eventos",
+  "pt": "MODO ECONOMIA ATIVO",
+  "saelthyr": "FÆÞ SEREÞ MYRÆL VYREL",
+  "romanizacao": "faeth sereth myrael vyrel",
+  "literal": "modo proteger-mana vivo"
+ },
+ {
+  "group": "Eventos",
+  "pt": "MODO ECONOMIA DESATIVADO",
+  "saelthyr": "FÆÞ SEREÞ MYRÆL VYNEL VYREL",
+  "romanizacao": "faeth sereth myrael vynel vyrel",
+  "literal": "modo proteger-mana sem vida"
+ },
+ {
+  "group": "Eventos",
+  "pt": "WIFI TRAVADO",
+  "saelthyr": "CÆLKÆRYN VELÞ KORVEÞ",
+  "romanizacao": "caelkaeryn velth korveth",
+  "literal": "elo do céu preso"
+ },
+ {
+  "group": "Eventos",
+  "pt": "WIFI PERDIDO",
+  "saelthyr": "CÆLKÆRYN VELÞ NAREÞ",
+  "romanizacao": "caelkaeryn velth nareth",
+  "literal": "elo do céu perdido"
+ },
+ {
+  "group": "Eventos",
+  "pt": "UPLINK CELULAR",
+  "saelthyr": "KÆRYN VA TOWRYN",
+  "romanizacao": "kaeryn va towryn",
+  "literal": "elo da torre"
+ },
+ {
+  "group": "Eventos",
+  "pt": "UPLINK CAÍDO",
+  "saelthyr": "KÆRYN VA TOWRYN VELÞ DRYVEÞ",
+  "romanizacao": "kaeryn va towryn velth dryveth",
+  "literal": "elo da torre caiu"
+ },
+ {
+  "group": "Eventos",
+  "pt": "RÁDIO ONLINE",
+  "saelthyr": "CÆLRUVEL VYREL",
+  "romanizacao": "caelruvel vyrel",
+  "literal": "eco do céu vivo"
+ },
+ {
+  "group": "Eventos",
+  "pt": "RÁDIO OFFLINE",
+  "saelthyr": "CÆLRUVEL VYNEL VYREL",
+  "romanizacao": "caelruvel vynel vyrel",
+  "literal": "eco do céu sem vida"
+ },
+ {
+  "group": "Eventos",
+  "pt": "ELO ESTABELECIDO",
+  "saelthyr": "KÆRYN VELÞ DRÆLEÞ",
+  "romanizacao": "kaeryn velth draeleth",
+  "literal": "elo assentado"
+ },
+ {
+  "group": "Eventos",
+  "pt": "ELO PERDIDO",
+  "saelthyr": "KÆRYN VELÞ NAREÞ",
+  "romanizacao": "kaeryn velth nareth",
+  "literal": "elo perdido"
+ },
+ {
+  "group": "Eventos",
+  "pt": "SAÍDA ROTEADA",
+  "saelthyr": "ÞÆLPOR VELÞ GUEÞ",
+  "romanizacao": "thaelpor velth gueth",
+  "literal": "portal guiado"
+ },
+ {
+  "group": "Eventos",
+  "pt": "ALTO-FALANTE RESTAURADO",
+  "saelthyr": "TOWRYN VA DYREÞ VELÞ MÆREÞ",
+  "romanizacao": "towryn va dyreth velth maereth",
+  "literal": "torre da voz restaurada"
+ },
+ {
+  "group": "Eventos",
+  "pt": "USUÁRIO VERIFICADO",
+  "saelthyr": "KYLOR VELÞ VYÞ",
+  "romanizacao": "kylor velth vyth",
+  "literal": "amigo visto"
+ },
+ {
+  "group": "Eventos",
+  "pt": "PORTADORA ADQUIRIDA",
+  "saelthyr": "BÆRYN VELÞ GRYÞ",
+  "romanizacao": "baeryn velth gryth",
+  "literal": "portadora tomada"
+ },
+ {
+  "group": "Eventos",
+  "pt": "PORTADORA PERDIDA",
+  "saelthyr": "BÆRYN VELÞ NAREÞ",
+  "romanizacao": "baeryn velth nareth",
+  "literal": "portadora perdida"
+ },
+ {
+  "group": "Eventos",
+  "pt": "DISPOSITIVO PAREADO",
+  "saelthyr": "RUNEÞ VELÞ KÆREÞ",
+  "romanizacao": "runeth velth kaereth",
+  "literal": "runa ligada"
+ },
+ {
+  "group": "Eventos",
+  "pt": "DISPOSITIVO AUSENTE",
+  "saelthyr": "RUNEÞ FAR",
+  "romanizacao": "runeth far",
+  "literal": "runa longe"
+ },
+ {
+  "group": "Eventos",
+  "pt": "DADOS MÓVEIS ONLINE",
+  "saelthyr": "DYREÞIM VA TOWRYN VYREL",
+  "romanizacao": "dyrethim va towryn vyrel",
+  "literal": "palavras da torre vivas"
+ },
+ {
+  "group": "Eventos",
+  "pt": "DADOS MÓVEIS OFFLINE",
+  "saelthyr": "DYREÞIM VA TOWRYN VYNEL VYREL",
+  "romanizacao": "dyrethim va towryn vynel vyrel",
+  "literal": "palavras da torre sem vida"
+ },
+ {
+  "group": "Eventos",
+  "pt": "BUSCANDO ELOS",
+  "saelthyr": "QYREÞ KÆRYNIM",
+  "romanizacao": "qyreth kaerynim",
+  "literal": "encontrar elos"
+ },
+ {
+  "group": "Eventos",
+  "pt": "TODOS OS ELOS FECHADOS",
+  "saelthyr": "OMNIS KÆRYNIM VELÞ KELPORVEÞ",
+  "romanizacao": "omnis kaerynim velth kelporveth",
+  "literal": "todos elos não-abertos"
+ },
+ {
+  "group": "Eventos",
+  "pt": "SESSÃO ABERTA",
+  "saelthyr": "CHRONEL VELÞ PORVEÞ",
+  "romanizacao": "chronel velth porveth",
+  "literal": "tempo aberto"
+ },
+ {
+  "group": "Eventos",
+  "pt": "PERFIL COMPLETO RESTAURADO",
+  "saelthyr": "SÆL VA KYLOR OMNIS VELÞ MÆREÞ",
+  "romanizacao": "sael va kylor omnis velth maereth",
+  "literal": "alma do amigo inteira restaurada"
+ },
+ {
+  "group": "Eventos",
+  "pt": "CARGA TRAVADA",
+  "saelthyr": "MYRÆL VELÞ KORVEÞ",
+  "romanizacao": "myrael velth korveth",
+  "literal": "mana presa"
+ },
+ {
+  "group": "Clima/agenda",
+  "pt": "LIMPO",
+  "saelthyr": "CÆLÞ PÆL",
+  "romanizacao": "caelth pael",
+  "literal": "céu em paz"
+ },
+ {
+  "group": "Clima/agenda",
+  "pt": "NUBLADO",
+  "saelthyr": "CÆLÞ ÞUVELIM",
+  "romanizacao": "caelth thuvelim",
+  "literal": "céu de nuvens"
+ },
+ {
+  "group": "Clima/agenda",
+  "pt": "CHUVA",
+  "saelthyr": "VAYR VA CÆLÞ",
+  "romanizacao": "vayr va caelth",
+  "literal": "água do céu"
+ },
+ {
+  "group": "Clima/agenda",
+  "pt": "GAROA",
+  "saelthyr": "VAYR VA CÆLÞ LYN",
+  "romanizacao": "vayr va caelth lyn",
+  "literal": "pouca água do céu"
+ },
+ {
+  "group": "Clima/agenda",
+  "pt": "NEBLINA",
+  "saelthyr": "HÆVYR",
+  "romanizacao": "haevyr",
+  "literal": "neblina"
+ },
+ {
+  "group": "Clima/agenda",
+  "pt": "NEVE",
+  "saelthyr": "SKÆLYR",
+  "romanizacao": "skaelyr",
+  "literal": "neve"
+ },
+ {
+  "group": "Clima/agenda",
+  "pt": "ALARME",
+  "saelthyr": "RUVEL VA ÆLVEÞ",
+  "romanizacao": "ruvel va aelveth",
+  "literal": "eco do despertar"
+ },
+ {
+  "group": "Clima/agenda",
+  "pt": "AGENDA",
+  "saelthyr": "RAIÞ VA CHRONEL",
+  "romanizacao": "raith va chronel",
+  "literal": "caminho do tempo"
+ },
+ {
+  "group": "Clima/agenda",
+  "pt": "AMANHÃ",
+  "saelthyr": "ÞALYN",
+  "romanizacao": "thalyn",
+  "literal": "amanhã"
+ },
+ {
+  "group": "Clima/agenda",
+  "pt": "ECONOMIA DO SISTEMA",
+  "saelthyr": "SEREÞ MYRÆL VA RUNEÞYR",
+  "romanizacao": "sereth myrael va runethyr",
+  "literal": "proteger mana do sistema"
+ },
+ {
+  "group": "Clima/agenda",
+  "pt": "PAUSA",
+  "saelthyr": "HALYÞ",
+  "romanizacao": "halyth",
+  "literal": "esperar"
+ },
+ {
+  "group": "Clima/agenda",
+  "pt": "REPRODUZIR",
+  "saelthyr": "RUVEÞ",
+  "romanizacao": "ruveth",
+  "literal": "ecoar"
+ },
+ {
+  "group": "Clima/agenda",
+  "pt": "PRÓXIMA FAIXA",
+  "saelthyr": "ÆLYÞ OSTEL",
+  "romanizacao": "aelyth ostel",
+  "literal": "canção depois"
+ },
+ {
+  "group": "Clima/agenda",
+  "pt": "FAIXA ANTERIOR",
+  "saelthyr": "ÆLYÞ VRÆN",
+  "romanizacao": "aelyth vraen",
+  "literal": "canção antes"
+ },
+ {
+  "group": "Clima/agenda",
+  "pt": "MONITORANDO SONO",
+  "saelthyr": "VYÞ SAUREÞ",
+  "romanizacao": "vyth saureth",
+  "literal": "ver descanso"
+ },
+ {
+  "group": "Clima/agenda",
+  "pt": "DESPERTAR",
+  "saelthyr": "ÆLVEÞ",
+  "romanizacao": "aelveth",
+  "literal": "despertar"
+ },
+ {
+  "group": "Painéis",
+  "pt": "CENTRAL LIVE",
+  "saelthyr": "COR VA ÞÆLRUVEL",
+  "romanizacao": "cor va thaelruvel",
+  "literal": "coração da transmissão"
+ },
+ {
+  "group": "Painéis",
+  "pt": "CONSOLE",
+  "saelthyr": "LOK VA KÆLDYR",
+  "romanizacao": "lok va kaeldyr",
+  "literal": "lugar do comando"
+ },
+ {
+  "group": "Calendário",
+  "pt": "DOMINGO",
+  "saelthyr": "ÆLYNDYN",
+  "romanizacao": "aelyndyn",
+  "literal": "dia do sol",
+  "abrev": "ÆLY",
+  "abrev_pt": "DOM"
+ },
+ {
+  "group": "Calendário",
+  "pt": "SEGUNDA",
+  "saelthyr": "NYRELDYN",
+  "romanizacao": "nyreldyn",
+  "literal": "dia da lua",
+  "abrev": "NYR",
+  "abrev_pt": "SEG"
+ },
+ {
+  "group": "Calendário",
+  "pt": "TERÇA",
+  "saelthyr": "FYRDYN",
+  "romanizacao": "fyrdyn",
+  "literal": "dia do fogo",
+  "abrev": "FYR",
+  "abrev_pt": "TER"
+ },
+ {
+  "group": "Calendário",
+  "pt": "QUARTA",
+  "saelthyr": "VAYRDYN",
+  "romanizacao": "vayrdyn",
+  "literal": "dia da água",
+  "abrev": "VAY",
+  "abrev_pt": "QUA"
+ },
+ {
+  "group": "Calendário",
+  "pt": "QUINTA",
+  "saelthyr": "DRÆLDYN",
+  "romanizacao": "draeldyn",
+  "literal": "dia da terra",
+  "abrev": "DRÆ",
+  "abrev_pt": "QUI"
+ },
+ {
+  "group": "Calendário",
+  "pt": "SEXTA",
+  "saelthyr": "CÆLDYN",
+  "romanizacao": "caeldyn",
+  "literal": "dia do céu",
+  "abrev": "CÆL",
+  "abrev_pt": "SEX"
+ },
+ {
+  "group": "Calendário",
+  "pt": "SÁBADO",
+  "saelthyr": "HUSHDYN",
+  "romanizacao": "hushdyn",
+  "literal": "dia do silêncio",
+  "abrev": "HUS",
+  "abrev_pt": "SÁB"
+ },
+ {
+  "group": "Calendário",
+  "pt": "JANEIRO",
+  "saelthyr": "FYRNYR",
+  "romanizacao": "fyrnyr",
+  "literal": "lua do fogo",
+  "abrev": "FYR",
+  "abrev_pt": "JAN"
+ },
+ {
+  "group": "Calendário",
+  "pt": "FEVEREIRO",
+  "saelthyr": "VAYRNYR",
+  "romanizacao": "vayrnyr",
+  "literal": "lua da água",
+  "abrev": "VAY",
+  "abrev_pt": "FEV"
+ },
+ {
+  "group": "Calendário",
+  "pt": "MARÇO",
+  "saelthyr": "ÞURNYR",
+  "romanizacao": "thurnyr",
+  "literal": "lua da tempestade",
+  "abrev": "ÞUR",
+  "abrev_pt": "MAR"
+ },
+ {
+  "group": "Calendário",
+  "pt": "ABRIL",
+  "saelthyr": "DRÆLNYR",
+  "romanizacao": "draelnyr",
+  "literal": "lua da terra",
+  "abrev": "DRÆ",
+  "abrev_pt": "ABR"
+ },
+ {
+  "group": "Calendário",
+  "pt": "MAIO",
+  "saelthyr": "MYRNYR",
+  "romanizacao": "myrnyr",
+  "literal": "lua da mana",
+  "abrev": "MYR",
+  "abrev_pt": "MAI"
+ },
+ {
+  "group": "Calendário",
+  "pt": "JUNHO",
+  "saelthyr": "NEÞNYR",
+  "romanizacao": "nethnyr",
+  "literal": "lua da morte",
+  "abrev": "NEÞ",
+  "abrev_pt": "JUN"
+ },
+ {
+  "group": "Calendário",
+  "pt": "JULHO",
+  "saelthyr": "SKÆLNYR",
+  "romanizacao": "skaelnyr",
+  "literal": "lua da neve",
+  "abrev": "SKÆ",
+  "abrev_pt": "JUL"
+ },
+ {
+  "group": "Calendário",
+  "pt": "AGOSTO",
+  "saelthyr": "HÆVNYR",
+  "romanizacao": "haevnyr",
+  "literal": "lua da neblina",
+  "abrev": "HÆV",
+  "abrev_pt": "AGO"
+ },
+ {
+  "group": "Calendário",
+  "pt": "SETEMBRO",
+  "saelthyr": "ÆLNYR",
+  "romanizacao": "aelnyr",
+  "literal": "lua da luz",
+  "abrev": "ÆLN",
+  "abrev_pt": "SET"
+ },
+ {
+  "group": "Calendário",
+  "pt": "OUTUBRO",
+  "saelthyr": "CÆLNYR",
+  "romanizacao": "caelnyr",
+  "literal": "lua do céu",
+  "abrev": "CÆL",
+  "abrev_pt": "OUT"
+ },
+ {
+  "group": "Calendário",
+  "pt": "NOVEMBRO",
+  "saelthyr": "SÆLNYR",
+  "romanizacao": "saelnyr",
+  "literal": "lua das almas",
+  "abrev": "SÆL",
+  "abrev_pt": "NOV"
+ },
+ {
+  "group": "Calendário",
+  "pt": "DEZEMBRO",
+  "saelthyr": "CRUORNYR",
+  "romanizacao": "cruornyr",
+  "literal": "lua do sangue",
+  "abrev": "CRU",
+  "abrev_pt": "DEZ"
+ }
+]

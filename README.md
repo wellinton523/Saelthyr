@@ -2,24 +2,26 @@
 
 Dicionário offline da língua construída **Saelthyr** (língua demoníaca de Preirt / lore Zeraph), para RP em Minecraft e referência rápida.
 
-O site é HTML/CSS/JS estático na raiz do repositório: `index.html`, `styles.css`, `data.js` e `app.js`. Não há passo de build.
-
 ## Como abrir
 
 ### Opção 1 — arquivo local
-Abra `index.html` no navegador (duplo clique). Funciona com `file://`.
+Abra o arquivo no navegador:
+
+```
+/workspace/saelthyr-dictionary/index.html
+```
+
+Ou dê um duplo clique em `index.html`. Funciona com `file://`.
 
 ### Opção 2 — servidor local
-No terminal, na raiz deste repositório:
+No terminal, dentro desta pasta:
 
 ```bash
+cd /workspace/saelthyr-dictionary
 python3 -m http.server 8080
 ```
 
 Depois abra: [http://localhost:8080](http://localhost:8080)
-
-### Opção 3 — GitHub Pages
-Publique a branch `main` a partir da pasta raiz (`/`). O `index.html` da raiz é a página inicial.
 
 ## Arquivos
 

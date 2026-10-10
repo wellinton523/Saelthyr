@@ -18,6 +18,7 @@
     <nav class="nav" aria-label="Navegação principal">
       <button type="button" class="nav-btn active" data-panel="inicio">Início</button>
       <button type="button" class="nav-btn" data-panel="regras">Regras</button>
+      <button type="button" class="nav-btn" data-panel="alfabeto">Alfabeto</button>
       <button type="button" class="nav-btn" data-panel="dicionario">Dicionário</button>
       <button type="button" class="nav-btn" data-panel="frases">Frases</button>
       <button type="button" class="nav-btn" data-panel="costumes">Costumes</button>
@@ -27,7 +28,8 @@
     <section id="panel-inicio" class="panel active" aria-label="Início">
       <div class="home-hero">
         <p id="home-blurb">
-          Língua construída dos demônios de Preirt. Usada no cotidiano e em rituais.
+          Língua construída dos demônios de Preirt. Baseada vagamente no latim,
+          mas sem cognatos óbvios. Usada no cotidiano e em rituais.
         </p>
         <div class="quick-links">
           <button type="button" class="nav-btn" data-goto="dicionario">Abrir dicionário</button>
@@ -37,12 +39,32 @@
         <div class="stat-row" id="home-stats"></div>
       </div>
 
+      <p class="panel-intro" style="margin-top: 1.75rem">
+        Para RP em Minecraft: use o dicionário para traduzir falas. Prefira frases curtas em rituais.
+        Atualize <code style="font-family:ui-monospace,monospace;color:#c4a484">data.js</code> quando o vocabulário crescer.
+      </p>
     </section>
 
     <!-- REGRAS -->
     <section id="panel-regras" class="panel" aria-label="Regras">
       <p class="panel-intro">Gramática e pronúncia do Saelthyr.</p>
       <div class="card-grid" id="grammar-list"></div>
+    </section>
+
+    <!-- ALFABETO -->
+    <section id="panel-alfabeto" class="panel" aria-label="Alfabeto Cruorthyr">
+      <p class="panel-intro">Cruorthyr — a escrita do Saelthyr.</p>
+      <ul class="cruor-rules">
+        <li>As letras ficam penduradas na linha central (guia superior).</li>
+        <li>Dentro da palavra a linha é contínua; ela só se quebra no espaço.</li>
+        <li><strong>Æ</strong> = ae · <strong>Þ</strong> = th</li>
+      </ul>
+      <div class="cruor-grid" id="cruor-grid"></div>
+      <div class="cruor-live">
+        <label for="cruor-input">Escreva em Saelthyr</label>
+        <input type="text" id="cruor-input" value="haelth qyr zer naereth ryn" autocomplete="off" spellcheck="false" />
+        <div class="cruor cruor-out" id="cruor-out"></div>
+      </div>
     </section>
 
     <!-- DICIONÁRIO -->
@@ -92,7 +114,7 @@
 
     <footer class="site-footer">
       <p>Atualize <code>data.js</code> para expandir o idioma.</p>
-      <p>Saelthyr · Preirt · dicionário offline</p>
+      <p>Saelthyr · Preirt / Zeraph lore · dicionário offline</p>
     </footer>
   </div>
 
