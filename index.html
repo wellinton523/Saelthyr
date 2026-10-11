@@ -22,6 +22,7 @@
       <button type="button" class="nav-btn" data-panel="dicionario">Dicionário</button>
       <button type="button" class="nav-btn" data-panel="frases">Frases</button>
       <button type="button" class="nav-btn" data-panel="costumes">Costumes</button>
+      <button type="button" class="nav-btn" data-panel="rituais">Rituais &amp; Encantamentos</button>
     </nav>
 
     <!-- INÍCIO -->
@@ -112,6 +113,20 @@
       <div class="card-grid" id="customs-panel-list"></div>
     </section>
 
+    <!-- RITUAIS -->
+    <section id="panel-rituais" class="panel" aria-label="Rituais e Encantamentos">
+      <p class="panel-intro">Encantamentos, pactos, cânticos e ritos de Preirt. <em>[hyrel]</em> = nome da pessoa.</p>
+      <div class="toolbar">
+        <div class="search-wrap">
+          <label class="sr-only" for="ritual-search">Buscar rituais</label>
+          <input type="search" id="ritual-search" placeholder="Buscar rituais…" autocomplete="off" spellcheck="false" />
+        </div>
+        <label class="ritual-toggle"><input type="checkbox" id="ritual-cruor" /> Mostrar em Cruorthyr</label>
+      </div>
+      <p class="results-meta" id="ritual-meta"></p>
+      <div class="ritual-list" id="ritual-list"></div>
+    </section>
+
     <footer class="site-footer">
       <p>Atualize <code>data.js</code> para expandir o idioma.</p>
       <p>Saelthyr · Preirt / Zeraph lore · dicionário offline</p>
@@ -120,6 +135,7 @@
 
   <script src="data.js"></script>
   <script src="lexicon.js"></script>
+  <script src="rituals.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

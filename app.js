@@ -78,6 +78,7 @@
     });
     if (id === "dicionario") $("#search")?.focus();
     if (id === "frases") $("#phrase-search")?.focus();
+    if (id === "rituais") $("#ritual-search")?.focus();
   }
 
   function toCruor(s) {
@@ -137,13 +138,17 @@
           " entradas" +
           (state.dictQuery || state.category !== "all" ? " (filtradas)" : "");
 
+    const rit = state.dictQuery.trim() ? ritualMatches(state.dictQuery) : [];
+    const ritHtml = rit.length
+      ? `<p class="results-meta ritual-hit">Também em ${rit.length} ${rit.length === 1 ? "ritual" : "rituais"}: ${rit.map((r) => `<button type="button" class="chip ritual-jump" data-ritual="${escapeHtml(r.id)}">${escapeHtml(r.title)}</button>`).join(" ")}</p>`
+      : "";
     if (!filtered.length) {
-      list.innerHTML =
+      list.innerHTML = ritHtml +
         '<p class="empty">Nenhuma entrada encontrada. Tente outro termo ou categoria.</p>';
       return;
     }
     const shown = filtered.slice(0, state.limit);
-    let html = shown.map((e, i) => renderEntry(e, state.dictQuery, i)).join("");
+    let html = ritHtml + shown.map((e, i) => renderEntry(e, state.dictQuery, i)).join("");
     if (filtered.length > shown.length) {
       html += `<div class="more-wrap"><button type="button" class="nav-btn more-btn" id="dict-more">Mostrar mais (${shown.length} de ${filtered.length})</button></div>`;
     }
@@ -169,6 +174,79 @@
     list.innerHTML = filtered
       .map((e, i) => renderEntry(e, state.phraseQuery, i))
       .join("");
+  }
+
+  function rituals() {
+    return typeof SAELTHYR_RITUALS !== "undefined" ? SAELTHYR_RITUALS : [];
+  }
+
+  function ritualText(r) {
+    if (r._s === undefined) {
+      r._s = [r.title, r.subtitle || "", r.category]
+        .concat(r.lines.map((l) => (l.step || "") + " " + l.sael + " " + l.pt), r.notes || [])
+        .join("\u0001").toLowerCase();
+    }
+    return r._s;
+  }
+
+  function ritualMatches(q) {
+    q = (q || "").toLowerCase().trim();
+    return rituals().filter((r) => !q || ritualText(r).includes(q));
+  }
+
+  function renderRituals() {
+    const list = $("#ritual-list");
+    const meta = $("#ritual-meta");
+    if (!list) return;
+    const q = state.ritualQuery || "";
+    const found = ritualMatches(q);
+    meta.textContent = found.length === 1 ? "1 ritual" : found.length + " rituais";
+    if (!found.length) {
+      list.innerHTML = '<p class="empty">Nenhum ritual encontrado.</p>';
+      return;
+    }
+    const cruor = !!state.ritualCruor;
+    list.innerHTML = found.map((r, i) => `
+      <article class="ritual-card" id="ritual-${escapeHtml(r.id)}" style="--i:${Math.min(i, 24)}">
+        <header class="ritual-head">
+          <div>
+            <h3 class="ritual-title">${highlight(r.title, q)}</h3>
+            ${r.subtitle ? `<div class="ritual-sub">${highlight(r.subtitle, q)}</div>` : ""}
+          </div>
+          <div class="ritual-actions">
+            <span class="entry-cat">${escapeHtml(r.category)}</span>
+            <button type="button" class="nav-btn ritual-copy" data-copy="${escapeHtml(r.id)}">Copiar</button>
+          </div>
+        </header>
+        <div class="ritual-lines">
+          ${r.lines.map((l) => `
+            ${l.step ? `<div class="ritual-step">${highlight(l.step, q)}</div>` : ""}
+            <div class="ritual-line">
+              <div class="ritual-sael">${highlight(l.sael, q)}</div>
+              ${cruor ? `<div class="cruor ritual-cruor" aria-hidden="true">${escapeHtml(toCruor(l.sael))}</div>` : ""}
+              ${l.pt ? `<div class="ritual-pt">${highlight(l.pt, q)}</div>` : ""}
+            </div>`).join("")}
+        </div>
+        ${(r.notes || []).map((n) => `<div class="entry-notes">${highlight(n, q)}</div>`).join("")}
+      </article>`).join("");
+  }
+
+  function copyRitual(id, btn) {
+    const r = rituals().find((x) => x.id === id);
+    if (!r) return;
+    const text = r.lines.map((l) => l.sael).join("\n");
+    const done = () => { btn.textContent = "Copiado"; setTimeout(() => { btn.textContent = "Copiar"; }, 1400); };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done, () => fallbackCopy(text, done));
+    } else fallbackCopy(text, done);
+  }
+
+  function fallbackCopy(text, done) {
+    const ta = document.createElement("textarea");
+    ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); done(); } catch {}
+    ta.remove();
   }
 
   function renderRules() {
@@ -250,6 +328,16 @@
     });
 
     $("#dict-list")?.addEventListener("click", (e) => {
+      const jump = e.target.closest(".ritual-jump");
+      if (jump) {
+        state.ritualQuery = state.dictQuery;
+        const rs = $("#ritual-search");
+        if (rs) rs.value = state.dictQuery;
+        renderRituals();
+        setPanel("rituais");
+        document.getElementById("ritual-" + jump.dataset.ritual)?.scrollIntoView({ block: "start" });
+        return;
+      }
       if (!e.target.closest("#dict-more")) return;
       state.limit += PAGE * 4;
       renderDictionary();
@@ -258,6 +346,21 @@
     $("#phrase-search")?.addEventListener("input", (e) => {
       state.phraseQuery = e.target.value;
       renderPhrases();
+    });
+
+    $("#ritual-search")?.addEventListener("input", (e) => {
+      state.ritualQuery = e.target.value;
+      renderRituals();
+    });
+
+    $("#ritual-cruor")?.addEventListener("change", (e) => {
+      state.ritualCruor = e.target.checked;
+      renderRituals();
+    });
+
+    $("#ritual-list")?.addEventListener("click", (e) => {
+      const b = e.target.closest(".ritual-copy");
+      if (b) copyRitual(b.dataset.copy, b);
     });
 
     $("#chips")?.addEventListener("click", (e) => {
@@ -290,6 +393,7 @@
     renderChips();
     renderDictionary();
     renderPhrases();
+    renderRituals();
     bind();
     setPanel("inicio");
   }
