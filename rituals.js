@@ -41,14 +41,6 @@ const SAELTHYR_RITUALS = [
     ],
     notes: ["Entoar em ritmo lento, arrastando a última sílaba de cada linha (sae-el, hu-shyr)."] },
 
-  { id: "rito-parto", title: "Parto", subtitle: "Proteger mãe e criança no nascimento", category: "Ritos longos",
-    lines: [
-      { sael: "Aemyr, zer gueth sael va kael.", pt: "Mãe, eu guio a alma da criança." },
-      { sael: "Vyrel nyreth yn aellyr, kel-nyreth yn neth.", pt: "A vida nasce na luz, não nasce na morte." },
-      { sael: "Thumel va aemyr, thumeth; thumel va kael, thumeth.", pt: "Coração da mãe, pulsa; coração da criança, pulsa." },
-      { sael: "Sereth, sereth, yrael sereth.", pt: "Protege, protege, sempre protege." }
-    ] },
-
   { id: "rito-pacto-sangue", title: "Pacto de sangue", category: "Ritos longos",
     lines: [
       { sael: "Cruorath va zer, cruorath va ryn,", pt: "Meu sangue, teu sangue," },
@@ -82,6 +74,16 @@ const SAELTHYR_RITUALS = [
       { sael: "Ryn essyr syrel va zer. Yrael.", pt: "Tu és meu filho. Para sempre." }
     ],
     notes: ["Troque syrel por saelyra se for uma menina."] },
+
+  { id: "rito-juramento", title: "Pacto de juramento", category: "Ritos longos",
+    lines: [
+      { sael: "Zer dyreth yn hushyr va Preirt.", pt: "Eu falo no silêncio de Preirt." },
+      { sael: "Dyreth va zer essyr cruorath va zer.", pt: "Minha palavra é meu sangue." },
+      { sael: "Qel zer kel-draveth qyr zer dyreth, cruorath va zer nelth dryveth.", pt: "Se eu não fizer o que digo, meu sangue vai cair." },
+      { sael: "Ryn vyth, ryn naereth, ryn raneth dyreth va zer.", pt: "Tu vês, tu conheces, tu guardas minha palavra." },
+      { sael: "Sevath draeleth.", pt: "O pacto se estabelece." }
+    ],
+    notes: ["Juramento usa dyreth (palavra) no sentido de palavra dada."] },
 
   { id: "protecao-demonio", title: "Proteção do demônio", subtitle: "O demônio jura guardar alguém", category: "Ritos do demônio",
     lines: [
@@ -125,5 +127,15 @@ const SAELTHYR_RITUALS = [
       { sael: "Draethryn va zer essyr draethryn va ryn. Neth kel-skethyr zerim.", pt: "Minha família é tua família. A morte não nos separa." },
       { sael: "Ryn essyr syrel va zer. Yrael.", pt: "Tu és meu filho. Para sempre." }
     ],
-    notes: ["A criança ganha o sobrenome Erebonys — é isso que torna o rito absoluto.", "Troque syrel por saelyra se for uma filha."] }
+    notes: ["A criança ganha o sobrenome Erebonys — é isso que torna o rito absoluto.", "Troque syrel por saelyra se for uma filha."] },
+
+  { id: "juramento-absoluto", title: "Pacto de juramento absoluto", category: "Ritos absolutos",
+    lines: [
+      { sael: "Zer, [hyrel], dyreth yn hushyr va Preirt.", pt: "Eu, [nome], falo no silêncio de Preirt." },
+      { sael: "Dyreth va zer essyr cruorath va zer, essyr sael va zer.", pt: "Minha palavra é meu sangue, é minha alma." },
+      { sael: "Qel zer kel-draveth qyr zer dyreth, cruorath va zer nelth dryveth, sael va zer nelth skethyr.", pt: "Se eu não fizer o que digo, meu sangue vai cair e minha alma vai se partir." },
+      { sael: "Zeraph Erebonys, ryn vyth, ryn naereth, ryn raneth dyreth va zer.", pt: "Zeraph Erebonys, tu vês, tu conheces, tu guardas minha palavra." },
+      { sael: "Qed sy orvyn kel-essyr, dyreth va zer nelth essyr.", pt: "Mesmo se o mundo deixar de existir, minha palavra vai ficar." },
+      { sael: "Sevath draeleth. Yrael. Naeth faren.", pt: "O pacto se estabelece. Para sempre. Nunca adeus." }
+    ] }
 ];
