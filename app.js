@@ -393,8 +393,10 @@
     renderChips();
     renderDictionary();
     renderPhrases();
-    renderRituals();
     bind();
+    // Copy buttons share .nav-btn. Draw them after bind so the tab
+    // handler does not treat Copiar as a panel switch.
+    renderRituals();
     setPanel("inicio");
   }
 
