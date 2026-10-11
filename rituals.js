@@ -7,7 +7,7 @@ const SAELTHYR_RITUALS = [
       { sael: "Cruorath va zer, thumeth.", pt: "Meu sangue, pulsa. — magia de sangue pra se fortalecer." },
       { sael: "Sael, maereth.", pt: "Alma, volta. — cura ou traz a alma de volta ao corpo." },
       { sael: "Hushyr.", pt: "Silêncio. — cala ou anula a magia do inimigo." },
-      { sael: "Zer gueth sael.", pt: "Eu guio a alma. — a assinatura do Zeraph, pra guiar ou puxar almas." },
+      { sael: "Zer gueth sael.", pt: "Eu guio a alma. — guiar ou puxar almas." },
       { sael: "Skeldra, skethyr!", pt: "Espada, corta! — um golpe de lâmina de mana." },
       { sael: "Sevath, draeleth.", pt: "Pacto, se estabelece. — sela um pacto na hora." }
     ],
@@ -40,14 +40,6 @@ const SAELTHYR_RITUALS = [
       { step: "Fechamento (sussurrado):", sael: "Sevath... sevath... hushyr.", pt: "Pacto... pacto... silêncio." }
     ],
     notes: ["Entoar em ritmo lento, arrastando a última sílaba de cada linha (sae-el, hu-shyr)."] },
-
-  { id: "rito-parto", title: "Parto", subtitle: "Proteger mãe e criança no nascimento", category: "Ritos longos",
-    lines: [
-      { sael: "Aemyr, zer gueth sael va kael.", pt: "Mãe, eu guio a alma da criança." },
-      { sael: "Vyrel nyreth yn aellyr, kel-nyreth yn neth.", pt: "A vida nasce na luz, não nasce na morte." },
-      { sael: "Thumel va aemyr, thumeth; thumel va kael, thumeth.", pt: "Coração da mãe, pulsa; coração da criança, pulsa." },
-      { sael: "Sereth, sereth, yrael sereth.", pt: "Protege, protege, sempre protege." }
-    ] },
 
   { id: "rito-pacto-sangue", title: "Pacto de sangue", category: "Ritos longos",
     lines: [
@@ -96,10 +88,10 @@ const SAELTHYR_RITUALS = [
 
   { id: "protecao-absoluta", title: "Proteção absoluta", category: "Ritos absolutos",
     lines: [
-      { sael: "Zer, Zeraph Erebonys, orneth hyrel va ryn: [hyrel].", pt: "Eu, Zeraph Erebonys, chamo o teu nome: [nome]." },
+      { sael: "Zer, [nome do demônio], orneth hyrel va ryn: [hyrel].", pt: "Eu, [nome do demônio], chamo o teu nome: [nome]." },
       { sael: "Zer essyr scythel va ryn, zer essyr nythel soveth ryn.", pt: "Eu sou teu escudo, eu sou a noite sobre ti." },
       { sael: "Neth kel-vyth ryn, skeldra kel-skethyr ryn, fyr kel-naereth kydryn va ryn.", pt: "A morte não te vê, a espada não te corta, o fogo não conhece teu corpo." },
-      { sael: "Qel ryn orneth \"Zeraph Erebonys\", zer nelth essyr yn kyrn va ryn.", pt: "Quando chamares “Zeraph Erebonys”, vou estar na tua mão." },
+      { sael: "Qel ryn orneth \"[nome do demônio]\", zer nelth essyr yn kyrn va ryn.", pt: "Quando chamares “[nome do demônio]”, vou estar na tua mão." },
       { sael: "Qed sy orvyn kel-essyr, zer nelth raneth ryn.", pt: "Mesmo se o mundo deixar de existir, vou te guardar." },
       { sael: "Hyrel va zer essyr sevath. Yrael. Naeth faren.", pt: "Meu nome é o pacto. Para sempre. Nunca adeus." }
     ],
@@ -107,12 +99,12 @@ const SAELTHYR_RITUALS = [
 
   { id: "pacto-sangue-absoluto", title: "Pacto de sangue absoluto", category: "Ritos absolutos",
     lines: [
-      { sael: "Zer, Zeraph Erebonys, delyth cruorath va zer.", pt: "Eu, Zeraph Erebonys, dou o meu sangue." },
+      { sael: "Zer, [nome do demônio], delyth cruorath va zer.", pt: "Eu, [nome do demônio], dou o meu sangue." },
       { sael: "Ryn, [hyrel], delyth cruorath va ryn.", pt: "Tu, [nome], dás o teu sangue." },
       { sael: "Cruorath kresketh cruorath, sael kresketh sael, hyrel kresketh hyrel.", pt: "Sangue se une a sangue, alma a alma, nome a nome." },
       { sael: "Qel ryn neth, zer gueth sael va ryn; qel zer skethyr, ryn thumeth.", pt: "Quando morreres, eu guio tua alma; quando eu for cortado, tu pulsas." },
       { sael: "Sevath kel-skethyr, kel-maereth, kel-naeth.", pt: "O pacto não se corta, não volta atrás, não acaba." },
-      { sael: "Zeraph Erebonys va [hyrel]. [hyrel] va Zeraph Erebonys. Yrael.", pt: "Zeraph Erebonys de [nome]. [Nome] de Zeraph Erebonys. Para sempre." }
+      { sael: "[nome do demônio] [sobrenome] va [hyrel]. [hyrel] va [nome do demônio] [sobrenome]. Yrael.", pt: "[nome do demônio] [sobrenome] de [nome]. [Nome] de [nome do demônio] [sobrenome]. Para sempre." }
     ],
     notes: ["kel-naeth (não acaba) junta a negação com “nunca” pra dar força poética; ao pé da letra seria “não nunca”. Versão mais limpa: yrael essyr (é para sempre)."] },
 
@@ -120,10 +112,10 @@ const SAELTHYR_RITUALS = [
     lines: [
       { sael: "Kael, [hyrel], ryn kel-nyreth yn draeth va zer,", pt: "Criança, [nome], tu não nasceste na minha casa," },
       { sael: "qed sy, sael va ryn nyreth yn thumel va zer.", pt: "mas mesmo assim tua alma nasceu no meu coração." },
-      { sael: "Zer, Zeraph Erebonys, dresketh ryn yn cruorath, yn sael, yn hyrel.", pt: "Eu, Zeraph Erebonys, te adoto pelo sangue, pela alma e pelo nome." },
-      { sael: "Hyrel va ryn nelth essyr [hyrel] Erebonys.", pt: "Teu nome vai ser [nome] Erebonys." },
+      { sael: "Zer, [nome do demônio], dresketh ryn yn cruorath, yn sael, yn hyrel.", pt: "Eu, [nome do demônio], te adoto pelo sangue, pela alma e pelo nome." },
+      { sael: "Hyrel va ryn nelth essyr [hyrel] [sobrenome].", pt: "Teu nome vai ser [nome] [sobrenome]." },
       { sael: "Draethryn va zer essyr draethryn va ryn. Neth kel-skethyr zerim.", pt: "Minha família é tua família. A morte não nos separa." },
       { sael: "Ryn essyr syrel va zer. Yrael.", pt: "Tu és meu filho. Para sempre." }
     ],
-    notes: ["A criança ganha o sobrenome Erebonys — é isso que torna o rito absoluto.", "Troque syrel por saelyra se for uma filha."] }
+    notes: ["A criança recebe o sobrenome do demônio — é isso que torna o rito absoluto.", "Troque syrel por saelyra se for uma filha."] }
 ];
