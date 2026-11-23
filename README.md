@@ -65,3 +65,9 @@ Salve o arquivo e recarregue a página no navegador. Pronto.
 ## Léxico das 5.000 palavras
 
 Gerado a partir da lista de frequência pt_br 50k de hermitdave/FrequencyWords (OpenSubtitles 2018), lematizada com simplemma. Palavras de coisas que não existem em Preirt ficam sem tradução (usa-se a palavra portuguesa). O núcleo continua em `data.js`; o léxico novo está em `lexicon.js`, carregado depois dele.
+
+## Tradutor e Iniciação
+
+- **Tradutor** (`translator.js`): PT ⇄ Saelthyr aproximado, palavra por palavra, usando `data.js` + `lexicon.js`. Aplica as regras fáceis (pronomes, `kel-`, `velth`/`nelth`, `X va Y`, plural `-im`, `kae`, sem artigos). Mostra palavra, Cruorthyr e glosa; palavras fora do léxico ficam em português, sublinhadas.
+- **Iniciação** (`lessons.js` + `learn.js`): caminho de selos em 7 unidades. Véu, Ressonância e Vigília ficam no `localStorage` do navegador, sem conta.
+- Para acrescentar lições, edite `lessons.js`. As palavras precisam existir no `data.js` ou no `lexicon.js`.

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Dicionário Saelthyr — língua demoníaca de Preirt (lore Zeraph)" />
+  <meta name="description" content="Dicionário Saelthyr — língua demoníaca de Preirt (lore de Preirt)" />
   <title>Saelthyr — Dicionário</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -20,6 +20,8 @@
       <button type="button" class="nav-btn" data-panel="regras">Regras</button>
       <button type="button" class="nav-btn" data-panel="alfabeto">Alfabeto</button>
       <button type="button" class="nav-btn" data-panel="dicionario">Dicionário</button>
+      <button type="button" class="nav-btn" data-panel="tradutor">Tradutor</button>
+      <button type="button" class="nav-btn" data-panel="iniciacao">Iniciação</button>
       <button type="button" class="nav-btn" data-panel="frases">Frases</button>
       <button type="button" class="nav-btn" data-panel="costumes">Costumes</button>
       <button type="button" class="nav-btn" data-panel="rituais">Rituais &amp; Encantamentos</button>
@@ -38,6 +40,19 @@
           <button type="button" class="nav-btn" data-goto="frases">Frases rituais</button>
         </div>
         <div class="stat-row" id="home-stats"></div>
+      </div>
+
+      <div class="home-portals">
+        <button type="button" class="portal-card" data-goto="tradutor">
+          <span class="portal-seal" aria-hidden="true"><span class="cruor">DYRÆLÞ</span></span>
+          <span class="portal-title">Tradutor</span>
+          <span class="portal-text">Português ⇄ Saelthyr, com a escrita Cruorthyr e a glosa de cada palavra.</span>
+        </button>
+        <button type="button" class="portal-card" data-goto="iniciacao">
+          <span class="portal-seal" aria-hidden="true"><span class="cruor">SÆL</span></span>
+          <span class="portal-title">Iniciação</span>
+          <span class="portal-text">Desça pelos selos: Cruorthyr, cotidiano, gramática, frases, costumes e pactos.</span>
+        </button>
       </div>
 
       <p class="panel-intro" style="margin-top: 1.75rem">
@@ -88,6 +103,58 @@
       <div class="entry-list" id="dict-list"></div>
     </section>
 
+    <!-- TRADUTOR -->
+    <section id="panel-tradutor" class="panel" aria-label="Tradutor">
+      <p class="panel-intro">Tradutor aproximado, palavra por palavra, a partir do dicionário e do léxico. Revise frases importantes antes de usar em ritual.</p>
+      <div class="tr-book" id="tr-book">
+        <div class="tr-page" id="tr-page-src">
+          <div class="tr-page-head">
+            <span class="tr-lang" id="tr-src-lang">Português</span>
+            <div class="tr-tools">
+              <button type="button" class="tr-mini" id="tr-clear">Limpar</button>
+            </div>
+          </div>
+          <label class="sr-only" for="tr-input">Texto de origem</label>
+          <textarea id="tr-input" class="tr-input" rows="6" spellcheck="false" placeholder="Escreva aqui…"></textarea>
+          <div class="tr-layers" id="tr-src-layers" hidden></div>
+        </div>
+
+        <button type="button" class="tr-swap sigil-btn" id="tr-swap" aria-label="Inverter direção (Português ⇄ Saelthyr)" title="Inverter direção">
+          <span class="tr-swap-glyph" aria-hidden="true">⇄</span>
+        </button>
+
+        <div class="tr-page" id="tr-page-dst">
+          <div class="tr-page-head">
+            <span class="tr-lang" id="tr-dst-lang">Saelthyr</span>
+            <div class="tr-tools">
+              <button type="button" class="tr-mini" id="tr-copy-text">Copiar texto</button>
+              <button type="button" class="tr-mini" id="tr-copy-cruor">Copiar Cruorthyr</button>
+            </div>
+          </div>
+          <div class="tr-output" id="tr-output" aria-live="polite"></div>
+          <div class="tr-layers" id="tr-dst-layers"></div>
+        </div>
+      </div>
+      <div class="tr-under">
+        <div class="tr-register" role="group" aria-label="Registro">
+          <span class="tr-register-label">Registro</span>
+          <button type="button" class="chip active" data-register="cotidiano">cotidiano</button>
+          <button type="button" class="chip" data-register="ritual">ritual</button>
+        </div>
+        <p class="tr-legend"><span class="tr-unknown-sample">palavra</span> = não está no léxico (fica em português) · passe o mouse ou toque numa palavra para ver a entrada</p>
+      </div>
+      <div class="tr-chips-wrap">
+        <p class="results-meta">Frases prontas</p>
+        <div class="chips tr-chips" id="tr-chips"></div>
+      </div>
+      <div class="tr-pop" id="tr-pop" role="tooltip" hidden></div>
+    </section>
+
+    <!-- INICIAÇÃO -->
+    <section id="panel-iniciacao" class="panel" aria-label="Iniciação">
+      <div class="ini-root" id="ini-root"></div>
+    </section>
+
     <!-- FRASES -->
     <section id="panel-frases" class="panel" aria-label="Frases">
       <p class="panel-intro">Frases prontas para RP e rituais.</p>
@@ -129,7 +196,7 @@
 
     <footer class="site-footer">
       <p>Atualize <code>data.js</code> para expandir o idioma.</p>
-      <p>Saelthyr · Preirt / Zeraph lore · dicionário offline</p>
+      <p>Saelthyr · lore de Preirt · dicionário offline</p>
     </footer>
   </div>
 
@@ -137,5 +204,8 @@
   <script src="lexicon.js"></script>
   <script src="rituals.js"></script>
   <script src="app.js"></script>
+  <script src="translator.js"></script>
+  <script src="lessons.js"></script>
+  <script src="learn.js"></script>
 </body>
 </html>

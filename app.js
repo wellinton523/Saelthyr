@@ -64,8 +64,11 @@
 
   function setPanel(id) {
     state.panel = id;
-    $$(".nav-btn").forEach((btn) => {
+    $$(".nav-btn[data-panel]").forEach((btn) => {
       btn.classList.toggle("active", btn.dataset.panel === id);
+      if (btn.dataset.panel === id && btn.closest(".nav") && btn.scrollIntoView) {
+        try { btn.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" }); } catch (e) {}
+      }
     });
     $$(".panel").forEach((p) => {
       const active = p.id === "panel-" + id;
@@ -79,6 +82,20 @@
     if (id === "dicionario") $("#search")?.focus();
     if (id === "frases") $("#phrase-search")?.focus();
     if (id === "rituais") $("#ritual-search")?.focus();
+    document.dispatchEvent(new CustomEvent("saelthyr:panel", { detail: { id } }));
+  }
+
+  /* abre o Dicionário já filtrado por uma palavra (usado por Tradutor e Iniciação) */
+  function openInDictionary(word) {
+    state.dictQuery = String(word || "");
+    state.category = "all";
+    state.limit = PAGE;
+    const s = $("#search");
+    if (s) s.value = state.dictQuery;
+    renderChips();
+    renderDictionary();
+    setPanel("dicionario");
+    window.scrollTo({ top: 0 });
   }
 
   function toCruor(s) {
@@ -235,17 +252,22 @@
     const r = rituals().find((x) => x.id === id);
     if (!r) return;
     const text = r.lines.map((l) => l.sael).join("\n");
-    const done = () => { btn.textContent = "Copiado"; setTimeout(() => { btn.textContent = "Copiar"; }, 1400); };
+    // Show feedback in the click itself. clipboard.writeText can stay
+    // pending, which used to leave the button stuck on "Copiar".
+    btn.textContent = "Copiado";
+    clearTimeout(btn._copied);
+    btn._copied = setTimeout(() => { btn.textContent = "Copiar"; }, 1400);
+    fallbackCopy(text);
     if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(text).then(done, () => fallbackCopy(text, done));
-    } else fallbackCopy(text, done);
+      navigator.clipboard.writeText(text).catch(() => {});
+    }
   }
 
-  function fallbackCopy(text, done) {
+  function fallbackCopy(text) {
     const ta = document.createElement("textarea");
     ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
     document.body.appendChild(ta); ta.select();
-    try { document.execCommand("copy"); done(); } catch {}
+    try { document.execCommand("copy"); } catch {}
     ta.remove();
   }
 
@@ -395,6 +417,8 @@
     renderPhrases();
     renderRituals();
     bind();
+    window.SaelthyrApp = { toCruor, escapeHtml, setPanel, openInDictionary };
+    document.dispatchEvent(new CustomEvent("saelthyr:ready"));
     setPanel("inicio");
   }
 
