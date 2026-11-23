@@ -4239,5 +4239,6 @@
     {"saelthyr": "tabraeleth", "pt": "urinar", "category": "verbos"},
     {"saelthyr": "brysael", "pt": "acerto", "category": "substantivos", "notes": "de bryseth (acertar)"}
   ];
+  SAELTHYR._lexiconFrom = SAELTHYR.entries.length;
   Array.prototype.push.apply(SAELTHYR.entries, LEX);
 })();

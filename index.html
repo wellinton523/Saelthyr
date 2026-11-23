@@ -57,7 +57,7 @@
 
       <p class="panel-intro" style="margin-top: 1.75rem">
         Para RP em Minecraft: use o dicionário para traduzir falas. Prefira frases curtas em rituais.
-        Atualize <code style="font-family:ui-monospace,monospace;color:#c4a484">data.js</code> quando o vocabulário crescer.
+        No Tradutor, toque numa palavra sublinhada para acrescentá-la ao léxico.
       </p>
     </section>
 
@@ -105,7 +105,7 @@
 
     <!-- TRADUTOR -->
     <section id="panel-tradutor" class="panel" aria-label="Tradutor">
-      <p class="panel-intro">Tradutor aproximado, palavra por palavra, a partir do dicionário e do léxico. Revise frases importantes antes de usar em ritual.</p>
+      <p class="panel-intro">Tradutor aproximado, palavra por palavra, a partir do dicionário e do léxico. Toque numa palavra sublinhada para acrescentá-la. Revise frases importantes antes de usar em ritual.</p>
       <div class="tr-book" id="tr-book">
         <div class="tr-page" id="tr-page-src">
           <div class="tr-page-head">
@@ -141,7 +141,7 @@
           <button type="button" class="chip active" data-register="cotidiano">cotidiano</button>
           <button type="button" class="chip" data-register="ritual">ritual</button>
         </div>
-        <p class="tr-legend"><span class="tr-unknown-sample">palavra</span> = não está no léxico (fica em português) · passe o mouse ou toque numa palavra para ver a entrada</p>
+        <p class="tr-legend"><span class="tr-unknown-sample">palavra</span> = não está no léxico — toque para acrescentar · passe o mouse para ver a entrada</p>
       </div>
       <div class="tr-chips-wrap">
         <p class="results-meta">Frases prontas</p>
@@ -195,7 +195,7 @@
     </section>
 
     <footer class="site-footer">
-      <p>Atualize <code>data.js</code> para expandir o idioma.</p>
+      <p>Palavras novas: toque na sublinhada no Tradutor, ou edite <code>data.js</code>.</p>
       <p>Saelthyr · lore de Preirt · dicionário offline</p>
     </footer>
   </div>
@@ -203,6 +203,7 @@
   <script src="data.js"></script>
   <script src="lexicon.js"></script>
   <script src="rituals.js"></script>
+  <script src="user-words.js"></script>
   <script src="app.js"></script>
   <script src="translator.js"></script>
   <script src="lessons.js"></script>

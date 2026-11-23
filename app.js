@@ -128,15 +128,54 @@
       ? `<div class="entry-notes">${highlight(entry.notes, query)}</div>`
       : "";
     const phraseClass = entry.category === "frases" ? " phrase-card" : "";
+    const userClass = entry.userAdded ? " entry-user" : "";
     const stagger = Math.min(index, 24);
+    const badge = entry.userAdded ? `<span class="uw-badge">adicionada por você</span>` : "";
+    const actions = entry.userAdded && entry.userId
+      ? `<div class="uw-entry-actions">
+          <button type="button" class="tr-mini" data-uw-edit="${escapeHtml(entry.userId)}">Editar</button>
+          <button type="button" class="tr-mini" data-uw-del="${escapeHtml(entry.userId)}">Apagar</button>
+          ${entry.userPending
+            ? `<button type="button" class="tr-mini" data-uw-pub="${escapeHtml(entry.userId)}">Publicar no GitHub</button>`
+            : `<span class="uw-published">publicada · o site leva cerca de 1 min</span>`}
+        </div>`
+      : "";
     return `
-      <article class="entry${phraseClass}" style="--i:${stagger}">
-        <div class="entry-sael">${highlight(entry.saelthyr, query)}</div>
+      <article class="entry${phraseClass}${userClass}" style="--i:${stagger}"${entry.userId ? ` data-user-id="${escapeHtml(entry.userId)}"` : ""}>
+        <div class="entry-sael">${highlight(entry.saelthyr, query)}${badge}</div>
         <div class="cruor entry-cruor" aria-hidden="true">${escapeHtml(toCruor(entry.saelthyr))}</div>
         <div class="entry-pt">${highlight(entry.pt, query)}</div>
         <div class="entry-cat">${escapeHtml(catLabel(entry.category))}</div>
         ${notes}
+        ${actions}
       </article>`;
+  }
+
+  function foldQ(s) {
+    return String(s || "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/æ/g, "ae")
+      .replace(/þ/g, "th")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function lookup(q) {
+    const n = foldQ(q);
+    if (!n) return [];
+    return SAELTHYR.entries.filter((e) => {
+      if (foldQ(e.saelthyr) === n) return true;
+      return String(e.pt).split(/\s*\/\s*|\s*;\s*/).some((p) => foldQ(p) === n);
+    });
+  }
+
+  function refresh() {
+    renderHome();
+    renderChips();
+    renderDictionary();
+    renderPhrases();
   }
 
   function renderDictionary() {
@@ -417,7 +456,7 @@
     renderPhrases();
     renderRituals();
     bind();
-    window.SaelthyrApp = { toCruor, escapeHtml, setPanel, openInDictionary };
+    window.SaelthyrApp = { toCruor, escapeHtml, setPanel, openInDictionary, refresh, lookup };
     document.dispatchEvent(new CustomEvent("saelthyr:ready"));
     setPanel("inicio");
   }
