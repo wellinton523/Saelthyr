@@ -425,7 +425,7 @@ const SAELTHYR = {
     { saelthyr: "Ryn essyr kylor kae?", pt: "Você é amigo?", category: "frases" },
     { saelthyr: "Zer volyth merath.", pt: "Eu quero comida.", category: "frases" },
     { saelthyr: "Ryn poth syreth zer kae?", pt: "Você pode me ajudar?", category: "frases" },
-    { saelthyr: "Zer vaelth kel.", pt: "Eu não sei.", category: "frases" },
+    { saelthyr: "Zer kel-vaelth.", pt: "Eu não sei.", category: "frases" },
     { saelthyr: "Graeth, kylor.", pt: "Obrigado, amigo.", category: "frases" },
     { saelthyr: "Faren va hushyr.", pt: "Adeus em paz.", category: "frases" },
     { saelthyr: "Zer essyr daemor.", pt: "Eu sou um demônio.", category: "frases" },
