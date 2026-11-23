@@ -385,6 +385,18 @@
     });
   }
 
+  function acceptsLexicon(typed, toSael, reveal) {
+    const lookup = window.SaelthyrApp && window.SaelthyrApp.lookup;
+    if (!lookup || !reveal) return false;
+    const hits = lookup(typed) || [];
+    if (toSael) {
+      const want = normPT(reveal.pt);
+      return hits.some((h) => norm(h.saelthyr) === norm(typed) && alts(h.pt).some((a) => normPT(a) === want));
+    }
+    const want = norm(reveal.sael);
+    return hits.some((h) => norm(h.saelthyr) === want && alts(h.pt).some((a) => normPT(a) === normPT(typed)));
+  }
+
   function evaluate(ex) {
     if (ex.type === "mc") return { ok: run.answer === ex.correct };
     if (ex.type === "match") return { ok: true };
@@ -398,6 +410,7 @@
         const tol = want.length <= 4 ? 0 : want.length <= 10 ? 1 : 2;
         if (lev(got, want) <= tol) return { ok: true, near: true };
       }
+      if (acceptsLexicon(run.answer, ex.toSael, ex.reveal)) return { ok: true };
       return { ok: false };
     }
     return { ok: false };
@@ -520,5 +533,7 @@
   }
 
   window.SaelthyrInitiation = { current: () => run, buildExercises: (id) => { const f = FLAT[flatIndex(id)]; return buildExercises(f.lesson, f.unit); }, flat: FLAT, state: S, startLesson: (id) => startLesson(id), evaluate: (ex, ans) => { run = run || { answer: null }; run.answer = ans; return evaluate(ex); } };
+  window.SaelthyrIniciacao = { accepts: acceptsLexicon };
+
   if (window.SaelthyrApp) boot(); else document.addEventListener("saelthyr:ready", boot);
 })();

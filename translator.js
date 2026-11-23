@@ -102,7 +102,7 @@
     PT2S = new Map(); S2PT = new Map(); VERBS = new Map();
     const entries = (typeof SAELTHYR !== "undefined" && SAELTHYR.entries) || [];
     entries.forEach((e, i) => {
-      const prio = i; // data.js vem antes do lexicon.js → prioridade
+      const prio = e.userAdded || e._fromUserFile ? -2 : i; // data.js vem antes do lexicon.js; palavras suas vencem o sentido
       const isPhrase = e.category === "frases";
       if (isPhrase) {
         addPT(cleanKey(e.pt), e, prio);
@@ -305,7 +305,11 @@
       let start = true;
       out.forEach((o) => {
         if (o.kind === "punct") { if (/[.!?]/.test(o.sael)) start = true; return; }
-        if (start && o.sael) { o.sael = o.sael.charAt(0).toUpperCase() + o.sael.slice(1); start = false; }
+        if (start && o.sael) {
+          o.plain = o.sael;
+          o.sael = o.sael.charAt(0).toUpperCase() + o.sael.slice(1);
+          start = false;
+        }
       });
       if (register === "ritual") {
         const last = out[out.length - 1];
@@ -432,7 +436,11 @@
       let start = true;
       out.forEach((o) => {
         if (o.kind === "punct") { if (/[.!?]/.test(o.pt)) start = true; return; }
-        if (start && o.pt) { o.pt = o.pt.charAt(0).toUpperCase() + o.pt.slice(1); start = false; }
+        if (start && o.pt) {
+          o.plain = o.pt;
+          o.pt = o.pt.charAt(0).toUpperCase() + o.pt.slice(1);
+          start = false;
+        }
       });
       return out;
     });
@@ -458,9 +466,9 @@
     return s.trim();
   }
 
-  function block(sael, gloss, entry, unknown) {
+  function block(sael, gloss, entry, unknown, plain) {
     const cr = A.toCruor(sael);
-    return `<span class="tr-w${unknown ? " tr-unknown" : ""}" tabindex="0" data-e="${regEntry(entry)}" data-word="${esc(sael)}"${unknown ? ' title="não está no léxico"' : ""}>
+    return `<span class="tr-w${unknown ? " tr-unknown" : ""}" tabindex="0" data-e="${regEntry(entry)}" data-word="${esc(unknown && plain ? plain : sael)}"${unknown ? ' title="não está no léxico — clique para acrescentar"' : ""}>
       <span class="tr-w-sael">${esc(sael)}</span>
       <span class="cruor tr-w-cruor" aria-hidden="true">${esc(cr || "\u00a0")}</span>
       <span class="tr-w-gloss">${esc(unknown ? "não está no léxico" : gloss || "\u00a0")}</span></span>`;
@@ -497,7 +505,7 @@
           return block(bare, g, h ? h.entry : o.entry, false);
         }).join("");
       }
-      return block(o.sael, o.src, o.entry, o.kind === "unknown");
+      return block(o.sael, o.src, o.entry, o.kind === "unknown", o.plain);
     }).join("")}</div>`).join("");
   }
   function renderLayersS2PT(lines) {
@@ -514,7 +522,7 @@
         if (!o.pt) return;
         const tight = o.kind === "punct" && /^[.,!?;:)\]…]$/.test(o.pt);
         const html = o.kind === "unknown"
-          ? `<span class="tr-unknown tr-inline" tabindex="0" title="não está no léxico" data-word="${esc(o.pt)}">${esc(o.pt)}</span>`
+          ? `<span class="tr-unknown tr-inline" tabindex="0" title="não está no léxico — clique para acrescentar" data-word="${esc(o.plain || o.pt)}">${esc(o.pt)}</span>`
           : o.entry ? `<span class="tr-inline tr-hover" tabindex="0" data-e="${regEntry(o.entry)}" data-word="${esc(o.sael)}">${esc(o.pt)}</span>` : esc(o.pt);
         parts.push((parts.length && !tight ? " " : "") + html); prev = o.pt;
       });
@@ -524,6 +532,7 @@
 
   let lastSael = "", lastPlain = "";
   function update() {
+    ENTRY_REG.length = 0;
     const inp = $("#tr-input");
     st.text = inp.value; save();
     const srcL = $("#tr-src-layers"), dstL = $("#tr-dst-layers"), out = $("#tr-output");
@@ -596,7 +605,7 @@
     const word = el.dataset.word || "";
     const unknown = el.classList.contains("tr-unknown");
     pop.innerHTML = unknown
-      ? `<div class="tr-pop-head">${esc(word)}</div><div class="tr-pop-pt">não está no léxico — ficou em português</div><button type="button" class="tr-mini" data-dict="${esc(word)}">Procurar no Dicionário</button>`
+      ? `<div class="tr-pop-head">${esc(word)}</div><div class="tr-pop-pt">não está no léxico</div><button type="button" class="tr-mini" data-add-word="${esc(word)}">Adicionar ao léxico</button>`
       : e ? `<div class="tr-pop-head">${esc(e.saelthyr)}</div><div class="cruor tr-pop-cruor">${esc(A.toCruor(e.saelthyr))}</div><div class="tr-pop-pt">${esc(e.pt)}</div>${e.notes ? `<div class="tr-pop-note">${esc(e.notes)}</div>` : ""}<button type="button" class="tr-mini" data-dict="${esc(e.saelthyr)}">Abrir no Dicionário</button>`
       : `<div class="tr-pop-head">${esc(word)}</div><div class="tr-pop-pt">regra gramatical</div>`;
     pop.hidden = false;
@@ -636,22 +645,45 @@
     const panel = $("#panel-tradutor");
     panel.addEventListener("mouseover", (e) => { const w = e.target.closest(".tr-w, .tr-hover, .tr-unknown"); if (w && w !== popFor) showPop(w); });
     panel.addEventListener("focusin", (e) => { const w = e.target.closest(".tr-w, .tr-hover, .tr-unknown"); if (w) showPop(w); });
+    const addUnknown = (w) => {
+      hidePop();
+      if (window.SaelthyrUserWords) window.SaelthyrUserWords.openForm({ dir: st.dir, word: w.dataset.word || "" });
+    };
     panel.addEventListener("click", (e) => {
+      const add = e.target.closest("[data-add-word]");
+      if (add) { hidePop(); window.SaelthyrUserWords && window.SaelthyrUserWords.openForm({ dir: st.dir, word: add.getAttribute("data-add-word") || "" }); return; }
       const d = e.target.closest("[data-dict]");
       if (d) { hidePop(); A.openInDictionary(d.dataset.dict.replace(/^kel-/i, "")); return; }
       const w = e.target.closest(".tr-w, .tr-hover, .tr-unknown");
+      if (w && w.classList.contains("tr-unknown")) { addUnknown(w); return; }
       if (w) { showPop(w); return; }
       if (!e.target.closest("#tr-pop")) hidePop();
+    });
+    panel.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      const w = e.target.closest(".tr-unknown");
+      if (!w) return;
+      e.preventDefault();
+      addUnknown(w);
     });
     panel.addEventListener("mouseleave", hidePop);
     applyDir();
   }
 
   // API para testes / outras abas
+  function rebuild() {
+    buildIndex();
+    hidePop();
+    if ($("#tr-input")) { renderChips(); update(); }
+  }
+
   window.SaelthyrTranslator = {
     ptToSael: (s, reg) => { if (!PT2S) buildIndex(); return ptToSael(s, reg || "cotidiano").map((l) => joinTokens(l, "sael")).join("\n"); },
     saelToPT: (s) => { if (!PT2S) buildIndex(); return saelToPT(s).map((l) => joinTokens(l, "pt")).join("\n"); },
+    rebuild,
   };
+
+  document.addEventListener("saelthyr:userwords", () => { if (PT2S) rebuild(); });
 
   if (window.SaelthyrApp) boot(); else document.addEventListener("saelthyr:ready", boot);
 })();
