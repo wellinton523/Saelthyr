@@ -34,7 +34,7 @@
     {"saelthyr": "oven", "pt": "outro", "category": "particulas"},
     {"saelthyr": "mynreth", "pt": "pensar", "category": "verbos"},
     {"saelthyr": "vaeseth", "pt": "deixar", "category": "verbos"},
-    {"saelthyr": "vaedyr", "pt": "pai", "category": "pessoas"},
+    {"saelthyr": "aethyr", "pt": "pai", "category": "pessoas"},
     {"saelthyr": "haereth", "pt": "sentir", "category": "verbos"},
     {"saelthyr": "tharn", "pt": "vez", "category": "tempo_lugar"},
     {"saelthyr": "naen thrael", "pt": "algo", "category": "particulas", "notes": "composto: naen (algum) + thrael (coisa)"},
