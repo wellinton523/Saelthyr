@@ -235,17 +235,22 @@
     const r = rituals().find((x) => x.id === id);
     if (!r) return;
     const text = r.lines.map((l) => l.sael).join("\n");
-    const done = () => { btn.textContent = "Copiado"; setTimeout(() => { btn.textContent = "Copiar"; }, 1400); };
+    // Show feedback in the click itself. clipboard.writeText can stay
+    // pending, which used to leave the button stuck on "Copiar".
+    btn.textContent = "Copiado";
+    clearTimeout(btn._copied);
+    btn._copied = setTimeout(() => { btn.textContent = "Copiar"; }, 1400);
+    fallbackCopy(text);
     if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(text).then(done, () => fallbackCopy(text, done));
-    } else fallbackCopy(text, done);
+      navigator.clipboard.writeText(text).catch(() => {});
+    }
   }
 
-  function fallbackCopy(text, done) {
+  function fallbackCopy(text) {
     const ta = document.createElement("textarea");
     ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
     document.body.appendChild(ta); ta.select();
-    try { document.execCommand("copy"); done(); } catch {}
+    try { document.execCommand("copy"); } catch {}
     ta.remove();
   }
 
